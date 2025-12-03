@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attraction Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+  <div id="ui-container">
+    <div class="header">
+      <h1 id="header-title">Attraction Simulator</h1>
+      <div class="subtitle">Chaotic System Simulation</div>
+    </div>
+    <div class="controls">
+      <div class="control-group">
+        <label>Attractor Type</label>
+        <select id="select-attractor">
+          <option value="halvorsen">Halvorsen</option>
+          <option value="lorenz">Lorenz</option>
+          <option value="chen">Chen</option>
+          <option value="thomas">Thomas</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Color Palette</label>
+        <select id="select-palette">
+          <option value="NEON">Neon</option>
+          <option value="FIRE">Fire</option>
+          <option value="OCEAN">Ocean</option>
+          <option value="MATRIX">Matrix</option>
+          <option value="SPECTRAL">Spectral</option>
+          <option value="CYBERPUNK">Cyberpunk</option>
+          <option value="WASTELAND">Wasteland</option>
+          <option value="VOID">Void</option>
+          <option value="RADIOACTIVE">Radioactive</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Show Trails</label>
+        <input type="checkbox" id="check-trails">
+      </div>
+      <div class="control-group">
+        <label>Parameter 'a'</label>
+        <input type="range" id="param-a" min="1.0" max="2.0" step="0.01" value="1.4">
+        <span id="val-a">1.40</span>
+      </div>
+      <div class="control-group">
+        <label>Speed</label>
+        <input type="range" id="param-speed" min="0.1" max="5.0" step="0.1" value="1.0">
+        <span id="val-speed">1.0x</span>
+      </div>
+      <button id="btn-reset">Respawn System</button>
+    </div>
+    <div class="stats">
+      <div>Particles: <span id="stat-count">0</span></div>
+    </div>
+  </div>
+
+  <div id="equation-container"></div>
+
+  <canvas id="canvas"></canvas>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
